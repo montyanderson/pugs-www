@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+	<title>monty's pugs</title>
+
+	<style>
+		body {
+			width: 100vw;
+			height: 100vh;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		async function getPug() {
+			const {message} = await (await fetch('https://dog.ceo/api/breed/pug/images/random')).json();
+
+			document.body.style.backgroundImage = `url('${message}')`;
+		}
+
+		getPug();
+
+		document.body.onclick = getPug;
+	</script>
+</body>
